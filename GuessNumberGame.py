@@ -1,44 +1,38 @@
-# -*- coding: utf-8 -*-
 import random
-
-"""
-x= "غير معروف"
-file = open('score.txt','w',encoding='utf-8')
-file.write(x)
-file.close()
-"""               
-def ArabicPrint(s):
-  print s.decode('utf8')
+              
 
 
-ArabicPrint("لعبة خمن الرقم")
+print("Guess A number Game")
 print "----------------------------"
-x= "غير معروف"
-x = raw_input("  مرحبا بك ما اسمك؟  ".decode('utf8'))
-#ArabicPrint(x)
 
-print  "أهلا ".decode('utf8') + x
+x = raw_input(" Hello , What is your Name? ")
+
+print  "Hello " + x + " !"
 guess_number= random.randint(1,30)
-print "لدي رقم من 1 إلى 30 و عليك أن تحزره".decode('utf8')
+print "Guess a number from 1 to 30"
 counter=0
 for i in range(1,100):
-    entered_number= input("ادخل الرقم:".decode('utf8'))
+    try: 
+      entered_number= int(input("Enter A number : "))
+    except:
+      print "Error not integer number"
+      break
     if (entered_number == guess_number):
-                      ArabicPrint("برافو لقد حزرت الرقم")
-                      ArabicPrint("عدد المحاولات")
+                      print("Great ! you have guessed the number")
+                      print("No of Tries : ")
                       print counter
                       file = open('score.txt','w')
-                     # file.write(x.decode('utf8'))
-                      file.write('   : ' + str(counter))
-                      file.write('\n')
+                      file.write(x +'   : ' + str(counter)+'\n' )
                       file.close()
                       break
     elif (entered_number > guess_number):
-                      ArabicPrint("كبير ")
+                      print("big")
                       counter=counter+1
     else:
-        ArabicPrint("صغير")
-        counter=counter+1
+                      print("small")
+                      counter=counter+1
+
+    
 
 
                     
